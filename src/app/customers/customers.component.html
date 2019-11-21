@@ -1,0 +1,32 @@
+<div class="row m-4">
+  <h1>Liste de vos Clients</h1>
+</div>
+<div class="row">
+  <div class="light">Barre de recherche ???</div>
+</div>
+<div class="row m-4">
+  <div class="col">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Avatar</th>
+          <th scope="col">Nom</th>
+          <th scope="col">Prénom</th>
+          <th scope="col">Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let c of customers">
+          <th scope="row">{{ c.id }}</th>
+          <td>
+            <img [src]="c.avatar" alt="Avatar de {{c.firstName}}">
+          </td>
+          <td>{{ c.lastName }}</td>
+          <td>{{ c.firstName }}</td>
+          <td>{{ c.email }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
