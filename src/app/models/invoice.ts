@@ -1,9 +1,11 @@
+import { Customer } from './customer';
+
 export interface Invoice {
 
-  id?: number;
+  id: number;
   title: string;
   sentAt: string;
-  customerId: number;
   amount: number;
   status: string;
+  customer?: Customer;
 }

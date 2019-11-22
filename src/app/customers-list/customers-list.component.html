@@ -2,7 +2,7 @@
   <h1>Liste de vos Clients</h1>
 </div>
 <div class="row">
-  <div class="light">Barre de recherche ???</div>
+  <!--div class="light">Barre de recherche ???</div-->
 </div>
 <div class="row m-4">
   <div class="col">
@@ -14,17 +14,26 @@
           <th scope="col">Nom</th>
           <th scope="col">Prénom</th>
           <th scope="col">Email</th>
+          <th scope="col">Facture(s)</th>
+          <th scope="col">Total (€)</th>
+          <th scope="col"></th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let c of customers">
           <th scope="row">{{ c.id }}</th>
           <td>
-            <img [src]="c.avatar" alt="Avatar de {{c.firstName}}">
+            <img [src]="c.avatar" alt="Avatar de {{c.firstName}}" class="rounded-circle">
           </td>
           <td>{{ c.lastName }}</td>
           <td>{{ c.firstName }}</td>
           <td>{{ c.email }}</td>
+          <td>{{ c.invoices.length }}</td>
+          <td>{{ c.totalAmount / 100 }} &euro;</td>
+          <td>
+            <a routerLink="" class="btn btn-primary  mr-2"><i class="fas fa-edit"></i></a>
+            <a routerLink="" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+          </td>
         </tr>
       </tbody>
     </table>

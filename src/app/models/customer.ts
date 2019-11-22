@@ -2,11 +2,12 @@ import { Invoice } from './invoice';
 
 export interface Customer {
 
-  id?: number;
-  lastName: string;
   firstName: string;
+  lastName: string;
+  id: number;
   email: string;
-  avatar: string;
+  avatar?: string;
   comment?: string;
-  invoices: Invoice;
+  invoices: Invoice[];
+  totalAmount: number;
 }
