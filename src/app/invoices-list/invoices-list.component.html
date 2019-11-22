@@ -1,1 +1,58 @@
-<p>invoices-list works!</p>
+<div class="row m-4">
+  <h1>Liste de vos Factures</h1>
+</div>
+<div class="row">
+  <!--div class="light">Barre de recherche ???</div-->
+</div>
+<div class="row m-4">
+  <div class="col">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col"># Numero</th>
+          <th scope="col">Client</th>
+          <th scope="col">Montant</th>
+          <th scope="col">Status</th>
+          <th scope="col">Envoyée le</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let i of paginatedInvoices">
+          <th scope="row">{{ i.id }}</th>
+          <td>
+            {{ i.customer.lastName }} {{ i.customer.firstName }}
+          </td>
+          <td>{{ i.amount | amount }}</td>
+          <td>
+            <app-invoice-status [value]="i.status" [rounded]="false">
+              {{ i.status }}
+            </app-invoice-status>
+          </td>
+
+          <td>{{ i.sentAt | date: 'dd/MM/yyyy'}}</td>
+          <td>
+            <a routerLink="" class="btn btn-primary  mr-2"><i class="fas fa-edit"></i></a>
+            <button (click)="remove()" class="btn btn-danger"><i class="fas fa-trash"></i></button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!--app-pagination></app-pagination-->
+    <div>
+      <ul class="pagination">
+        <li class="page-item" [class.disabled]="currentPage === 1">
+          <button class="page-link" (click)="handlePageChange(currentPage - 1)">&laquo;</button>
+        </li>
+        <li class="page-item" [class.active]="page === currentPage" *ngFor="let page of pages">
+          <button class="page-link" (click)="handlePageChange(page)">
+            {{ page }}
+          </button>
+        </li>
+        <li class="page-item" [class.disabled]="currentPage === pages.length">
+          <button class=" page-link" (click)="handlePageChange(currentPage + 1)">&raquo;</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

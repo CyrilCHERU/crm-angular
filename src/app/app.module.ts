@@ -1,3 +1,4 @@
+import { AmountPipe } from './pipes/amount.pipe';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -8,6 +9,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CustomersListComponent } from './customers-list/customers-list.component';
 import { InvoicesListComponent } from './invoices-list/invoices-list.component';
+import { InvoiceStatusComponent } from './invoice-status/invoice-status.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { InvoicesListComponent } from './invoices-list/invoices-list.component';
     NavbarComponent,
     HomepageComponent,
     CustomersListComponent,
-    InvoicesListComponent
+    InvoicesListComponent,
+    AmountPipe,
+    InvoiceStatusComponent
   ],
   imports: [
     BrowserModule,

@@ -29,7 +29,7 @@
           <td>{{ c.firstName }}</td>
           <td>{{ c.email }}</td>
           <td>{{ c.invoices.length }}</td>
-          <td>{{ c.totalAmount / 100 }} &euro;</td>
+          <td>{{ c.totalAmount | amount }}</td>
           <td>
             <a routerLink="" class="btn btn-primary  mr-2"><i class="fas fa-edit"></i></a>
             <a routerLink="" class="btn btn-danger"><i class="fas fa-trash"></i></a>

@@ -17,4 +17,8 @@ export class CustomerService {
         map(response => response['hydra:member'] as Customer[])
       );
   }
+
+  public remove(id: number) {
+    return this.http.delete('http://localhost:8000/api/customer/' + id)
+  }
 }
