@@ -10,7 +10,7 @@ import { InvoicesListComponent } from './invoices-list/invoices-list.component';
 
 const routes: Routes = [
   { path: 'customers', component: CustomersListComponent },
-  { path: 'customers/new', component: CustomerFormComponent },
+  { path: 'customers/:id/edit', component: CustomerFormComponent },
   { path: 'invoices', component: InvoicesListComponent },
   { path: 'invoices/new', component: InvoiceFormComponent },
   { path: 'login', component: LoginFormComponent },

@@ -31,7 +31,7 @@
           <td>{{ c.invoices.length }}</td>
           <td>{{ c.totalAmount | amount }}</td>
           <td>
-            <a routerLink="" class="btn btn-primary  mr-2"><i class="fas fa-edit"></i></a>
+            <a [routerLink]="[c.id, 'edit']" class="btn btn-primary  mr-2"><i class="fas fa-edit"></i></a>
             <a routerLink="" class="btn btn-danger"><i class="fas fa-trash"></i></a>
           </td>
         </tr>
@@ -54,6 +54,6 @@
     <p>Nombre d'éléments / page</p>
   </div>
 </div>
-<app-pagination [items]="customers" [currentPage]="currentPage" [itemsPerPage]="itemsPerPage"
+<bootstrap-pagination [items]="customers" [currentPage]="currentPage" [itemsPerPage]="itemsPerPage"
   (pageChanged)="handlePageChanged($event)">
-</app-pagination>
+</bootstrap-pagination>

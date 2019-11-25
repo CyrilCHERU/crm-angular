@@ -19,6 +19,14 @@ export class CustomerService {
   }
 
   public remove(id: number) {
-    return this.http.delete('http://localhost:8000/api/customer/' + id)
+    return this.http.delete('http://localhost:8000/api/customers/' + id);
+  }
+
+  public find(id: number) {
+    return this.http.get<Customer>('http://localhost:8000/api/customers/' + id);
+  }
+
+  public update(customer: Customer) {
+    return this.http.put<Customer>('http://localhost:8000/api/customers/' + customer.id, customer);
   }
 }

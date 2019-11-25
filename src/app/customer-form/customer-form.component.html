@@ -1,1 +1,43 @@
-<p>customer-form works!</p>
+<h1 class="mt-4 mb-2">Modification d'un client</h1>
+<div class="alert alert-danger" *ngIf="error" @fade>Une erreur est survenue, merci de réessayer plus tard ...</div>
+<form [formGroup]="form" (ngSubmit)="handleSubmit()">
+  <div class="form-group">
+    <label for="">Prénom</label>
+    <input type="text" class="form-control" formControlName="firstName"
+      [class.is-invalid]="form.getError('validation', 'firstName')">
+    <p @fade class="invalid-feedback" *ngIf="form.getError('validation', 'firstName') as error">
+      {{ error }}
+    </p>
+  </div>
+  <div class="form-group">
+    <label for="">Nom</label>
+    <input type="text" class="form-control" formControlName="lastName"
+      [class.is-invalid]="form.getError('validation', 'lastName')">
+    <p @fade class="invalid-feedback" *ngIf="form.getError('validation', 'lastName') as error">
+      {{ error }}
+    </p>
+  </div>
+  <div class="form-group">
+    <label>Email</label>
+    <input type="email" class="form-control" formControlName="email"
+      [class.is-invalid]="form.getError('validation', 'email')">
+    <p @fade class="invalid-feedback" *ngIf="form.getError('validation', 'email') as error">
+      {{ error }}
+    </p>
+  </div>
+  <div class="form-group">
+    <label for="">Url de l'Avatar</label>
+    <input type="url" class="form-control" formControlName="avatar"
+      [class.is-invalid]="form.getError('validation', 'avatar')">
+    <p @fade class="invalid-feedback" *ngIf="form.getError('validation', 'avatar') as error">
+      {{ error }}
+    </p>
+  </div>
+  <div class="form-group">
+    <label for="">Commentaire</label>
+    <textarea type="text" class="form-control" formControlName="comment"></textarea>
+  </div>
+  <button class="btn btn-success">Modifier</button>
+</form>
+
+<!--div class="green mt-4" [@openClosed]="state" (click)="toggleState()"></div-->

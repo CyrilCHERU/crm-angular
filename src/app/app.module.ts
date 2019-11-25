@@ -16,6 +16,7 @@ import { FilterPipe } from './pipes/filter.pipe';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { CustomerFormComponent } from './customer-form/customer-form.component';
 import { InvoiceFormComponent } from './invoice-form/invoice-form.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { InvoiceFormComponent } from './invoice-form/invoice-form.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    PaginationModule
+    PaginationModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 
 @Component({
-  selector: 'app-pagination',
+  selector: 'bootstrap-pagination',
   template: `
   <div *ngIf="pages.length > 1">
     <div>
