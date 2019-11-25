@@ -20,7 +20,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let c of customers">
+        <tr *ngFor="let c of customers | paginate: currentPage:itemsPerPage">
           <th scope="row">{{ c.id }}</th>
           <td>
             <img [src]="c.avatar" alt="Avatar de {{c.firstName}}" class="rounded-circle">
@@ -39,3 +39,21 @@
     </table>
   </div>
 </div>
+<div class="row mt-2 mb-2">
+  <div class="col-2">
+    <select [(ngModel)]="itemsPerPage" class="form-control">
+      <option [ngValue]="5">5</option>
+      <option [ngValue]="10">10</option>
+      <option [ngValue]="15">15</option>
+      <option [ngValue]="20">20</option>
+      <option [ngValue]="25">25</option>
+      <option [ngValue]="30">30</option>
+    </select>
+  </div>
+  <div class="col-4">
+    <p>Nombre d'éléments / page</p>
+  </div>
+</div>
+<app-pagination [items]="customers" [currentPage]="currentPage" [itemsPerPage]="itemsPerPage"
+  (pageChanged)="handlePageChanged($event)">
+</app-pagination>

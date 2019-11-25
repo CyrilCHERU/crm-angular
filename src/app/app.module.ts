@@ -1,3 +1,4 @@
+import { PaginationModule } from './pagination/pagination.module';
 import { AmountPipe } from './pipes/amount.pipe';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -10,6 +11,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { CustomersListComponent } from './customers-list/customers-list.component';
 import { InvoicesListComponent } from './invoices-list/invoices-list.component';
 import { InvoiceStatusComponent } from './invoice-status/invoice-status.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FilterPipe } from './pipes/filter.pipe';
+import { LoginFormComponent } from './login-form/login-form.component';
+import { CustomerFormComponent } from './customer-form/customer-form.component';
+import { InvoiceFormComponent } from './invoice-form/invoice-form.component';
 
 @NgModule({
   declarations: [
@@ -19,12 +25,19 @@ import { InvoiceStatusComponent } from './invoice-status/invoice-status.componen
     CustomersListComponent,
     InvoicesListComponent,
     AmountPipe,
-    InvoiceStatusComponent
+    InvoiceStatusComponent,
+    FilterPipe,
+    LoginFormComponent,
+    CustomerFormComponent,
+    InvoiceFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    PaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

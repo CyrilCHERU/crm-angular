@@ -21,7 +21,7 @@ export class InvoiceStatusComponent implements OnInit {
 
   status = {
     PAID: { label: 'Payée', color: 'success', icon: 'fa-check' },
-    SENT: { label: 'Envoyée', color: 'info', icon: 'fa-envelope' },
+    SENT: { label: 'Envoyée', color: 'info', icon: 'fa-paper-plane' },
     CANCELLED: { label: 'Annulée', color: 'danger', icon: 'fa-times' }
   };
 

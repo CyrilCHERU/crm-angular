@@ -2,7 +2,9 @@
   <h1>Liste de vos Factures</h1>
 </div>
 <div class="row">
-  <!--div class="light">Barre de recherche ???</div-->
+  <div class="col form-group ml-4">
+    <input type="text" name="" class="form-control" placeholder="Recherche..." (keyup)="handleFilter($event)">
+  </div>
 </div>
 <div class="row m-4">
   <div class="col">
@@ -18,7 +20,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let i of paginatedInvoices">
+        <tr *ngFor="let i of invoices | filter:search | paginate: currentPage:itemsPerPage">
           <th scope="row">{{ i.id }}</th>
           <td>
             {{ i.customer.lastName }} {{ i.customer.firstName }}
@@ -38,21 +40,24 @@
         </tr>
       </tbody>
     </table>
-    <!--app-pagination></app-pagination-->
-    <div>
-      <ul class="pagination">
-        <li class="page-item" [class.disabled]="currentPage === 1">
-          <button class="page-link" (click)="handlePageChange(currentPage - 1)">&laquo;</button>
-        </li>
-        <li class="page-item" [class.active]="page === currentPage" *ngFor="let page of pages">
-          <button class="page-link" (click)="handlePageChange(page)">
-            {{ page }}
-          </button>
-        </li>
-        <li class="page-item" [class.disabled]="currentPage === pages.length">
-          <button class=" page-link" (click)="handlePageChange(currentPage + 1)">&raquo;</button>
-        </li>
-      </ul>
+    <div class="row mt-2 mb-2">
+      <div class="col-2">
+        <select [(ngModel)]="itemsPerPage" class="form-control">
+          <option [ngValue]="5">5</option>
+          <option [ngValue]="10">10</option>
+          <option [ngValue]="15">15</option>
+          <option [ngValue]="20">20</option>
+          <option [ngValue]="25">25</option>
+          <option [ngValue]="30">30</option>
+        </select>
+      </div>
+      <div class="col-4">
+        <p>Nombre d'éléments / page</p>
+      </div>
     </div>
+
+    <app-pagination [items]="invoices | filter:search" [itemsPerPage]="itemsPerPage" [currentPage]="currentPage"
+      (pageChanged)="handlePageChanged($event)">
+    </app-pagination>
   </div>
 </div>
